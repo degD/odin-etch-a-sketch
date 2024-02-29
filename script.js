@@ -12,7 +12,7 @@ resizeButton.addEventListener("click", evt => {
     const newSize = prompt("How many squares should be on one side? (10-100, default: 16)");
     removeAllSquares();
 
-    if (10 <= newSize && newSize <= 100 && Number.isInteger(newSize)) {
+    if (10 <= newSize && newSize <= 100 && Number.isInteger(+newSize)) {
         generateDivGrid(newSize);
     } else {
         alert(`"${newSize}" is not an integer between 10-100. Defaulting to 16.`);
@@ -39,7 +39,12 @@ function generateDivGrid(squaresPerSide = 16) {
         gridSquareDiv.style["border"] = "solid 1px black";
 
         // add event for when mouse hovers over the squares.
+        // change color of squares.
+        gridSquareDiv.addEventListener("mouseover", evt => {
+            gridSquareDiv.style["background"] = randomRGB();
+        });
 
+        // add square to container.
         gridContainer.appendChild(gridSquareDiv);
     }
 }
@@ -52,4 +57,15 @@ function removeAllSquares() {
     while (gridContainer.firstChild) {
         gridContainer.removeChild(gridContainer.lastChild);
     }
+}
+
+/**
+ * Generate a random RGB color.
+ * @returns {string} Random color;
+ */
+function randomRGB() {
+    const red = Math.floor(Math.random() * 255);
+    const green = Math.floor(Math.random() * 255);
+    const blue = Math.floor(Math.random() * 255);
+    return `rgb(${red} ${green} ${blue})`;
 }
