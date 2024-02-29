@@ -1,5 +1,5 @@
 
-const CONTAINER_SIZE = 960;
+const CONTAINER_SIZE = 480;
 
 console.log("Hello, world!");
 generateDivGrid();
