@@ -2,8 +2,16 @@
 .container {
     width: 480px;
     height: 480px;
+    margin: 0 auto;
     background: white;
     border: solid 1px black;
     display: flex;
     flex-wrap: wrap;
+}
+
+button {
+    display: block;
+    font-size: 30px;
+    width: 200px;
+    margin: 20px auto;
 }
